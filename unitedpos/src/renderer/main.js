@@ -86,8 +86,8 @@ const ip = '127.0.0.' || Ip.address().split(".").splice(0, 3).join(".") + ".";
 new Promise((resolve, reject) => {
   const args = require('electron').remote.process.argv.slice(1);
 
-  resolve('13.58.137.201');
-  return
+  // resolve('13.58.137.201');
+  // return
 
   if (process.env.NODE_ENV === 'development') {
     resolve("127.0.0.1");
@@ -130,7 +130,7 @@ new Promise((resolve, reject) => {
   }
 }).then(ip => {
 
-  Vue.use(VueSocketio, `http://${ip}`);
+  Vue.use(VueSocketio, `http://${ip}:8888`);
 
   let printScript = document.createElement("script");
   printScript.src = `http://${ip}:8000/CLodopfuncs.js?priority=1`;
